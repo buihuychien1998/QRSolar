@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="data"
+                  type="com.hidero.qrsolar.entities.MyQR"></variable>
+        <variable name="viewHolder"
+                  type="com.hidero.qrsolar.adapters.MyQRAdapter.MyViewHolder"></variable>
+    </data>
+    <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:descendantFocusability="blocksDescendants"
+            android:id="@+id/item_container"
+            android:layout_margin="10dp"
+            android:background="#040727"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <ImageView
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv"
+                    android:layout_width="60dp" android:layout_height="60dp"/>
+            <TextView
+                    android:layout_marginTop="7dp"
+                    android:layout_marginLeft="16dp"
+                    android:textColorHint="@android:color/white"
+                    android:hint="Title"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:layout_toRightOf="@+id/iv"
+                    android:id="@+id/tvTitle"
+                    android:text="@{data.title}"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+            />
+            <TextView
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toRightOf="@+id/iv"
+                    android:id="@+id/tvTime"
+                    android:layout_below="@+id/tvTitle"
+                    android:hint="@{data.species}"
+                    android:textColorHint="#B3FFFFFF"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>

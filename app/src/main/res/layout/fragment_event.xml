@@ -1,0 +1,157 @@
+<layout>
+    <data>
+        <variable name="event"
+                  type="com.hidero.qrsolar.fragments.EventFragment"></variable>
+    </data>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 tools:context="com.hidero.qrsolar.fragments.EventFragment">
+        <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:id="@+id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize">
+
+                <ImageView
+                        android:onClick="@{event::myClick}"
+                        android:id="@+id/btnHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_black_back"/>
+
+                <TextView
+                        android:layout_toLeftOf="@id/btnSave"
+                        android:id="@+id/tvTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/btnHome"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="Event"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textColor="@android:color/black"/>
+                <ImageView
+                        android:onClick="@{event::myClick}"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/btnSave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_save"/>
+            </RelativeLayout>
+
+            <FrameLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_below="@+id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context=".fragments.EventFragment">
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <ImageView
+                            android:src="@drawable/ic_event"
+                            android:layout_margin="17dp"
+                            android:id="@+id/ivCreateEvent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                    <TextView
+                            android:layout_marginLeft="17dp"
+                            android:id="@+id/tvName"
+                            android:layout_below="@+id/ivCreateEvent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Name:"/>
+                    <EditText
+                            android:backgroundTint="#8B72FF"
+                            android:layout_marginHorizontal="17dp"
+                            android:id="@+id/etName"
+                            android:layout_below="@id/tvName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    <TextView
+                            android:layout_marginTop="17dp"
+                            android:id="@+id/tvStart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/etName"
+                            android:layout_marginLeft="17dp"
+                            android:text="Start time:"/>
+                    <LinearLayout
+                            android:id="@+id/layoutStart"
+                            android:weightSum="3"
+                            android:layout_below="@+id/tvStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <EditText
+                                android:inputType="none"
+                                android:textIsSelectable="true"
+                                android:focusable="false"
+                                android:onClick="@{event::myClick}"
+                                android:id="@+id/etStartDate"
+                                android:layout_marginLeft="17dp"
+                                android:layout_weight="2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
+                        <EditText
+                                android:inputType="none"
+                                android:textIsSelectable="true"
+                                android:focusable="false"
+                                android:onClick="@{event::myClick}"
+                                android:id="@+id/etStartTime"
+                                android:layout_marginHorizontal="17dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <TextView
+                            android:layout_marginTop="17dp"
+                            android:id="@+id/tvEnd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layoutStart"
+                            android:layout_marginLeft="17dp"
+                            android:text="End time:"/>
+                    <LinearLayout
+                            android:id="@+id/layoutEnd"
+                            android:weightSum="3"
+                            android:layout_below="@+id/tvEnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <EditText
+                                android:focusable="false"
+                                android:editable="false"
+                                android:onClick="@{event::myClick}"
+                                android:id="@+id/etEndDate"
+                                android:layout_marginLeft="17dp"
+                                android:layout_weight="2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
+                        <EditText
+                                android:editable="false"
+                                android:focusable="false"
+                                android:onClick="@{event::myClick}"
+                                android:id="@+id/etEndTime"
+                                android:layout_marginHorizontal="17dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </FrameLayout>
+        </RelativeLayout>
+
+
+    </FrameLayout>
+</layout>
+

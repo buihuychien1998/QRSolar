@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+            android:gravity="center_vertical"
+            android:background="@color/colorbg"
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize">
+
+        <Button
+                android:layout_marginLeft="25dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/btnFlash"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_flash"/>
+        <Button
+                android:layout_centerHorizontal="true"
+                android:id="@+id/btnGallery"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_gallery"/>
+
+
+        <Button
+                android:layout_marginRight="25dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/btnFlipCamera"
+                android:layout_width="25sp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/ic_flip_camera"/>
+    </RelativeLayout>
+    <FrameLayout
+            android:layout_below="@+id/toolBar"
+            android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <SurfaceView
+                android:id="@+id/camera_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        <ImageView
+                android:layout_gravity="center"
+                android:layout_width="200dp" android:layout_height="200dp"
+                android:src="@drawable/ic_frame"/>
+    </FrameLayout>
+
+
+</RelativeLayout>

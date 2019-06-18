@@ -1,0 +1,42 @@
+<FrameLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/image" tools:context=".activities.SplashScreenActivity"
+        android:padding="@dimen/screen_padding" android:background="@color/colorPurple"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content">
+
+
+
+    <com.hidero.qrsolar.activities.EmotionalFaceView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/emotionalFaceView"
+            android:layout_below="@+id/bar"
+            android:layout_centerInParent="true"/>
+
+    <com.hidero.qrsolar.activities.EmotionalFaceView
+            android:layout_height="@dimen/face_button_dimen"
+            android:layout_width="@dimen/face_button_dimen"
+            android:id="@+id/happyButton" app:state="happy"
+            app:mouthColor="@color/white" app:faceColor="@color/red"
+            app:eyesColor="@color/white" app:borderColor="@color/white"
+            android:layout_gravity="left"
+            />
+
+    <com.hidero.qrsolar.activities.EmotionalFaceView
+            android:layout_height="@dimen/face_button_dimen"
+            android:layout_width="@dimen/face_button_dimen"
+            android:id="@+id/sadButton" app:state="sad"
+            app:mouthColor="@color/black" app:faceColor="@color/light_grey"
+            app:eyesColor="@color/black" app:borderColor="@color/black"
+            android:layout_gravity="right"
+           />
+    <View
+            android:visibility="visible"
+            android:background="@color/red"
+            android:layout_height="3dp" android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true" android:id="@+id/bar"/>
+
+</FrameLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout
+            android:background="@color/colorbg"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            android:id="@+id/toolBar">
+        <ImageView
+                android:id="@+id/btnHome"
+                android:layout_width="wrap_content" android:layout_height="match_parent"
+                android:src="@drawable/ic_white_back"
+                android:padding="10dp"/>
+        <TextView
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:text="Select Images"
+                  android:gravity="center"
+                  android:textStyle="bold"
+                  android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+    </RelativeLayout>
+    <GridView
+            android:layout_margin="5dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:clipToPadding="false"
+            android:layout_below="@+id/toolBar"
+            android:id="@+id/galleryGridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="280dp"
+            android:gravity="center"
+            android:horizontalSpacing="5dp"
+            android:numColumns="4"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="5dp">
+    </GridView>
+
+</RelativeLayout>

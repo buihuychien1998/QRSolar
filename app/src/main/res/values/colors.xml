@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorPurple">#7b4bff</color>
+    <color name="colorPurpleDark">#6539ba</color>
+    <color name="colorPink">#FF4081</color>
+    <color name="colorPinkDark">#fe485a</color>
+    <color name="colorBottomNavigation">#0A0E41</color>
+    <color name="colorbg">#040727</color>
+    <color name="mdtp_accent_color">#009688</color>
+    <color name="mdtp_accent_color_dark">#00796b</color>
+    <color name="red">#e53935</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="light_grey">#AAAAAA</color>
+    <color name="dark_grey">#555555</color>
+</resources>

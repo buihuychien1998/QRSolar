@@ -1,0 +1,101 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--<style titleMain="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <!--<item titleMain="colorPrimary">@color/colorPrimary</item>-->
+    <!--<item titleMain="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+    <!--<item titleMain="colorAccent">@color/colorAccent</item>-->
+    <!--<item titleMain="android:windowAnimationStyle">@style/RavenAnimations</item>-->
+    <!--<item titleMain="android:windowBackground">@drawable/raven_loading_screen</item>-->
+    <!--<item titleMain="material_drawer_background">@color/colorPrimary</item>-->
+    <!--<item titleMain="material_drawer_primary_text">@color/colorText</item>-->
+    <!--<item titleMain="material_drawer_selected">@color/colorAccent</item>-->
+    <!--<item titleMain="material_drawer_selected_text">@color/colorTextDark</item>-->
+    <!--<item titleMain="material_drawer_divider">@color/colorBackground</item>-->
+    <!--</style>-->
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:listSeparatorTextViewStyle">@style/PreferenceListHeader</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--<style titleMain="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">-->
+    <!--<item titleMain="android:textColor">@color/colorText</item>-->
+    <!--<item titleMain="android:textSize">13sp</item>-->
+    <!--</style>-->
+
+    <style name="CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:colorControlNormal">@color/colorAccent</item>
+        <item name="android:colorControlActivated">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!--<style titleMain="FullScreenDialogToolbar">-->
+    <!--<item titleMain="android:background">@color/colorBackground</item>-->
+    <!--<item titleMain="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>-->
+    <!--</style>-->
+
+    <!--<style titleMain="RavenAnimations" parent="@android:style/Animation.Activity">-->
+    <!--<item titleMain="android:activityOpenEnterAnimation">@anim/slide_in_right</item>-->
+    <!--<item titleMain="android:activityOpenExitAnimation">@anim/slide_out_left</item>-->
+    <!--<item titleMain="android:activityCloseEnterAnimation">@anim/slide_in_left</item>-->
+    <!--<item titleMain="android:activityCloseExitAnimation">@anim/slide_out_right</item>-->
+    <!--</style>-->
+    <style name="MySwitch" parent="@style/Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:textColorPrimaryDisableOnly">#b71c1c</item>
+        <item name="android:colorControlActivated">#1b5e20</item>
+        <item name="android:colorForeground">#f57f17</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+    </style>
+
+    <style name="PreferenceTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:preferenceStyle">@style/PreferenceNew</item>
+        <item name="android:preferenceScreenStyle">@style/PreferenceNew</item>
+        <item name="android:listViewStyle">@style/lightListView</item>
+    </style>
+    <style name="PreferenceNew" parent="Preference.PreferenceScreen.Material">
+        <item name="android:background">@drawable/bg_setting</item>
+        <item name="android:foreground">@drawable/bg_setting</item>
+    </style>
+
+    <style name="Theme.Preferences" parent="android:Theme.Light" >
+        <item name="android:listViewStyle">@style/lightListView</item>
+    </style>
+    <style name="lightListView">
+        <item name="android:background">@color/colorbg</item>
+    </style>
+
+    <style name="Widget.TextView.ListSeparator" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="PreferenceListHeader" parent="Widget.TextView.ListSeparator">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">#cccccc</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingLeft">12dp</item>
+    </style>
+
+    <style name="PreferenceScreen" parent="android:Theme.NoTitleBar">
+        <item name="android:listSeparatorTextViewStyle">@style/PreferenceListHeader</item>
+        <item name="android:background">#F2B1DBF3</item>
+    </style>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".fragments.ContactvcardFragment">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+                    android:id="@+id/toolBar"
+
+    >
+
+        <ImageView android:layout_width="wrap_content" android:layout_height="match_parent"
+                   android:padding="10dp"
+                   android:src="@drawable/ic_black_back"
+                   android:id="@+id/btnHome"
+        />
+        <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:layout_toRightOf="@+id/btnHome"
+                  android:layout_toLeftOf="@id/btnSave"
+                  android:gravity="center"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                  android:textStyle="bold"
+                  android:text="Contact-vCard"
+                  android:id="@+id/tvTitle"
+        />
+        <ImageView android:layout_width="wrap_content" android:layout_height="match_parent"
+                   android:padding="10dp"
+                   android:src="@drawable/ic_save"
+                   android:id="@+id/btnSave"
+                   android:layout_alignParentRight="true"
+        />
+    </RelativeLayout>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp" android:background="?android:attr/listDivider"
+    ></View>
+    <ImageView
+            android:layout_margin="17dp"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:id="@+id/ivContact"
+            android:src="@drawable/ic_contact_mecard"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:hint="Name:"
+              android:id="@+id/tvName"
+              android:layout_marginLeft="17dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_marginHorizontal="17dp"
+                  android:weightSum="2"
+    >
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:hint="First name"
+                  android:id="@+id/etFirstName"
+                  android:layout_marginRight="5dp"/>
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:hint="Last name"
+                  android:id="@+id/etLastName"
+                  android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+    <TextView
+            android:layout_marginTop="17dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Number:"
+            android:id="@+id/tvNumber"
+            android:layout_marginLeft="17dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_marginHorizontal="17dp"
+                  android:weightSum="2"
+    >
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:hint="Mobile number"
+                  android:id="@+id/etMobile"
+                  android:layout_marginRight="5dp"/>
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:hint="Phone"
+                  android:id="@+id/etPhone"
+                  android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_marginTop="17dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_height="wrap_content"
+                  android:hint="Fax:"
+                  android:id="@+id/tvFax"
+                  android:layout_marginLeft="17dp"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_height="wrap_content"
+                  android:hint="Email:"
+                  android:id="@+id/tvEmail"
+                  android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_marginHorizontal="17dp"
+                  android:weightSum="2"
+    >
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:hint="Fax"
+                  android:id="@+id/etFax"
+                  android:layout_marginRight="5dp"/>
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:hint="your@gmail.com"
+                  android:id="@+id/etEmail"
+                  android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+</LinearLayout>

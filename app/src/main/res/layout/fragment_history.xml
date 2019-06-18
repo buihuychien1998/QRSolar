@@ -1,0 +1,87 @@
+<layout
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="history"
+                  type="com.hidero.qrsolar.fragments.HistoryFragment"></variable>
+    </data>
+    <RelativeLayout
+            android:background="@color/colorbg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+            <!--<ImageView-->
+                    <!--android:padding="10dp"-->
+                    <!--android:src="@drawable/ic_white_back"-->
+                    <!--android:id="@+id/btnHome"-->
+                    <!--android:layout_width="wrap_content" android:layout_height="match_parent"/>-->
+            <TextView
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:text="History"
+                    android:id="@+id/tvTitle"
+                    android:layout_toRightOf="@+id/btnHome"
+                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button
+                    android:onClick="@{history::myClick}"
+                    android:background="@drawable/background_clear_all_menu"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/btnClearAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Clear All"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"/>
+        </RelativeLayout>
+        <FrameLayout
+                android:layout_below="@id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorbg"
+                tools:context=".fragments.HistoryFragment">
+
+            <RelativeLayout
+                    android:id="@+id/emptyHistoryLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+            >
+
+                <ImageView
+                        android:layout_above="@+id/tvHistory"
+                        android:id="@+id/ivHistory"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_bitcoin"/>
+                <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/tvHistory"
+                        android:layout_centerInParent="true"
+                        android:textColor="@android:color/white"
+                        android:lines="2"
+                        android:text="Your Scan history will live here.\n What will your first Qr code be?"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                    android:splitMotionEvents="true"
+                    android:orientation="vertical"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_history"
+                    android:id="@+id/rvHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </FrameLayout>
+    </RelativeLayout>
+</layout>
+

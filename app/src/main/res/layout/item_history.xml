@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="data"
+                  type="com.hidero.qrsolar.entities.History"/>
+        <variable name="viewHolder"
+                  type="com.hidero.qrsolar.adapters.HistoryAdapter.MyViewHolder"/>
+    </data>
+    <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/item_container"
+            android:layout_margin="10dp"
+            android:background="#040727"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <com.daimajia.swipe.SwipeLayout
+                android:id="@+id/swipeLayout"
+                app:clickToClose="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:tag="right"
+                    android:background="#fff"
+                    android:id="@+id/rightLayout"
+                    android:layout_width="wrap_content"
+                    android:weightSum="1"
+                    android:layout_height="match_parent">
+                <ImageView
+                        android:padding="10dp"
+                        android:id="@+id/ivShare"
+                        android:src="@drawable/ic_share"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"/>
+                <ImageView
+                        android:id="@+id/ivDelete"
+                        android:src="@drawable/ic_delete"
+                        android:padding="10dp"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"/>
+
+
+            </LinearLayout>
+
+            <!--<LinearLayout-->
+                    <!--android:tag="left"-->
+                    <!--android:id="@+id/leftLayout"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent">-->
+
+                <!--<ImageView-->
+                        <!--android:id="@+id/ivDelete"-->
+                        <!--android:src="@drawable/ic_share"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:paddingLeft="25dp"-->
+                        <!--android:paddingRight="25dp"-->
+                        <!--android:layout_height="match_parent"/>-->
+
+                <!--<ImageView-->
+                        <!--android:id="@+id/ivShare"-->
+                        <!--android:src="@drawable/ic_share"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:paddingLeft="25dp"-->
+                        <!--android:paddingRight="25dp"-->
+                        <!--android:layout_height="match_parent"/>-->
+                <!---->
+            <!--</LinearLayout>-->
+
+            <!--Bottom-->
+            <!--<LinearLayout-->
+            <!--android:tag="Bottom3"-->
+            <!--android:id="@+id/starbott"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/bottom_wrapper_child1"-->
+            <!--android:background="@color/light_grey"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+            <!--<ImageView-->
+            <!--android:id="@+id/star"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:src="@drawable/ic_share"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"/>-->
+            <!--</RelativeLayout>-->
+            <!--</LinearLayout>-->
+            <!--Content-->
+            <RelativeLayout
+                    android:tag="Hover"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <ImageView
+                        android:scaleType="fitXY"
+                        android:src="@{safeUnbox(data.image)}"
+                        android:id="@+id/iv"
+                        android:layout_width="60dp" android:layout_height="60dp"/>
+                <TextView
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="16dp"
+                        android:textColorHint="@android:color/white"
+                        android:hint="Title"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:layout_toRightOf="@+id/iv"
+                        android:id="@+id/tvTitle"
+                        android:text="@{data.title}"
+                        android:textColor="@android:color/white"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                />
+                <TextView
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_toRightOf="@+id/iv"
+                        android:id="@+id/tvTime"
+                        android:layout_below="@+id/tvTitle"
+                        android:hint="@{data.time}"
+                        android:textColorHint="#B3FFFFFF"
+                        android:textColor="@android:color/white"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </com.daimajia.swipe.SwipeLayout>
+
+
+    </FrameLayout>
+</layout>

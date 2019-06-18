@@ -1,0 +1,121 @@
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="myqr"
+                  type="com.hidero.qrsolar.fragments.MyQRFragment"></variable>
+    </data>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:background="@color/colorbg"
+                 tools:context="com.hidero.qrsolar.fragments.MyQRFragment">
+        <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                    android:id="@+id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorbg">
+
+                <!--<ImageView-->
+                        <!--android:id="@+id/btnHome"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:src="@drawable/ic_white_back" android:layout_alignParentStart="true"-->
+                        <!--android:layout_alignParentTop="true"/>-->
+
+                <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/btnHome"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="My QR code"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textColor="@android:color/white" android:layout_marginLeft="0dp"
+                        android:layout_alignParentTop="true" android:layout_marginTop="0dp"/>
+
+                <Button
+                        android:onClick="@{myqr::onMyClick}"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:paddingVertical="5dp"
+                        android:paddingLeft="15dp"
+                        android:drawableLeft="@drawable/ic_create"
+                        android:id="@+id/btnCreate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:background="@drawable/background_create_menu"
+                        android:text="Create"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"/>
+            </RelativeLayout>
+
+            <FrameLayout
+
+                    android:layout_below="@id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorbg"
+                    tools:context=".fragments.MyQRFragment">
+                <RelativeLayout
+                        android:id="@+id/emptyMyQRLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <ImageView
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/ic_qr_code"
+                            android:layout_above="@id/tvMyQR"
+                            android:id="@+id/ivMyQR"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"/>
+                    <TextView
+                            android:gravity="center_horizontal"
+                            android:id="@+id/tvMyQR"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Empty folder"
+                            android:textColor="#fff"/>
+                    <Button
+                            android:onClick="@{myqr::onMyClick}"
+                            android:drawablePadding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:paddingHorizontal="20dp"
+                            android:drawableLeft="@drawable/ic_orange_create"
+                            android:textAllCaps="false"
+                            android:text="Create"
+                            android:textColor="#FF6929"
+                            android:background="@drawable/bg_btn_myqr"
+                            android:id="@+id/btnMyQR"
+                            android:layout_below="@id/tvMyQR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                        android:visibility="visible"
+                        tools:listitem="@layout/item_myqr"
+                        android:id="@+id/rvMyQR"
+                        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+            </FrameLayout>
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+</layout>
+

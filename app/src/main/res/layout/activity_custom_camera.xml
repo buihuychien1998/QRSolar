@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout
+            android:gravity="center_vertical"
+            android:background="@color/colorbg"
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize">
+
+        <Button
+                android:layout_marginLeft="25dp"
+                android:padding="100dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/flash"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_flash"/>
+        <Button
+                android:padding="100dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/captureImage"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_gallery"/>
+
+
+
+        <Button
+                android:padding="100dp"
+                android:layout_marginRight="25dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/flipCamera"
+                android:layout_width="25sp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/ic_flip_camera"/>
+    </RelativeLayout>
+    <SurfaceView
+            android:layout_below="@+id/toolBar"
+            android:id="@+id/surfaceView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+
+
+
+</RelativeLayout>

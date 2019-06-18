@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="main"
+                type="com.hidero.qrsolar.activities.MainActivity"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".activities.MainActivity">
+        <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+        >
+            <FrameLayout
+                    app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+            ></FrameLayout>
+
+            <android.support.design.widget.BottomNavigationView
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/bottomNavigation"
+                    app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+                    app:labelVisibilityMode="selected"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorBottomNavigation"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:itemIconTint="@drawable/item_bottom_navigation_selector"
+                    app:itemTextColor="@drawable/item_bottom_navigation_selector"
+                    app:menu="@menu/bottom_navigation" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

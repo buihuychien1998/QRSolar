@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/PreferenceNew"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:divider="@drawable/bg_setting"
+
+        android:fragment="com.hidero.qrsolar.fragments.SettingFragment"
+>
+    <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="com.hidero.qrsolar"
+            android:targetClass="com.hidero.qrsolar.fragments.SettingFragment"/>
+    <PreferenceCategory
+            android:layout="@layout/layout_setting"
+            android:title="Setting"/>
+    <PreferenceCategory
+            android:layout="@layout/layout_item_setting"
+            android:title="CAMERA SETTING">
+        <SwitchPreferenceCompat
+                android:layout="@layout/item_setting"
+                android:title="Sound"
+                android:selectable="true"
+                android:key="sound"
+                android:icon="@drawable/ic_sound"
+                android:defaultValue="true"
+        />
+
+        <SwitchPreferenceCompat
+
+                android:layout="@layout/item_setting"
+                android:title="Vibrate"
+                android:selectable="true"
+                android:key="vibrate"
+                android:icon="@drawable/ic_vibrate"
+                android:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:layout="@layout/layout_item_setting"
+            android:title="HISTORY">
+        <SwitchPreferenceCompat
+                android:layout="@layout/item_setting"
+                android:title="Save history"
+                android:selectable="true"
+                android:key="save_history"
+                android:icon="@drawable/ic_save_history"
+                android:defaultValue="true"/>
+        <SwitchPreferenceCompat
+                android:layout="@layout/item_setting"
+                android:title="Remove ads"
+                android:selectable="true"
+                android:key="remove_ads"
+                android:icon="@drawable/ic_remove_ads"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
+
+
+
+
+
+
