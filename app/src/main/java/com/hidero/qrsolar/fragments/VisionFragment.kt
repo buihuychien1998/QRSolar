@@ -4,9 +4,7 @@ package com.hidero.qrsolar.fragments
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.Camera
@@ -15,12 +13,13 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.Fragment
-import android.support.v7.preference.PreferenceManager
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import androidx.preference.PreferenceManager
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
@@ -33,27 +32,16 @@ import kotlinx.android.synthetic.main.fragment_vision.*
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.concurrent.schedule
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
 class VisionFragment : Fragment() {
 
-    var check :Boolean = false
+    var check: Boolean = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(com.hidero.qrsolar.R.layout.fragment_vision, container, false)
+        return inflater.inflate(R.layout.fragment_vision, container, false)
     }
 
     private val REQUEST_CAMERA = 1
@@ -79,7 +67,8 @@ class VisionFragment : Fragment() {
 
         mCameraPreview = getView()!!.findViewById(com.hidero.qrsolar.R.id.camera_view)
 
-        mBarcodeDetector = BarcodeDetector.Builder(activity).setBarcodeFormats(Barcode.QR_CODE).build()
+        mBarcodeDetector =
+            BarcodeDetector.Builder(activity).setBarcodeFormats(Barcode.QR_CODE).build()
 
         mCameraSource = CameraSource.Builder(activity, mBarcodeDetector!!).setFacing(
             CameraSource.CAMERA_FACING_BACK
@@ -127,91 +116,105 @@ class VisionFragment : Fragment() {
             @SuppressLint("MissingPermission")
             override fun receiveDetections(detections: Detector.Detections<Barcode>) {
                 val barcodes = detections.detectedItems
-                if(!check) {
+                if (!check) {
                     if (barcodes != null && barcodes.size() > 0) {
-                    activity!!.runOnUiThread(Runnable {
-//                        mBarcodeDetector!!.release()
-                        check=true
-                        try {
-                            val sharedPref = PreferenceManager.getDefaultSharedPreferences(activity)
-                            if (sharedPref.getBoolean("sound", false)) {
-                                val notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-                                val r = RingtoneManager.getRingtone(context, notification)
-                                r.play()
+                        activity?.runOnUiThread {
+                            //mBarcodeDetector!!.release()
+                            check = true
+                            try {
+                                val sharedPref =
+                                    PreferenceManager.getDefaultSharedPreferences(activity)
+                                if (sharedPref.getBoolean("sound", false)) {
+                                    val notification =
+                                        RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                                    val r = RingtoneManager.getRingtone(context, notification)
+                                    r.play()
 
-//                                Timer().schedule(500) {
-//                                    r.stop()
-//                                }
-
-                            }
-                            // Vibrate for 500 milliseconds
-
-                            if (sharedPref.getBoolean("vibrate", false)) {
-                                val v = activity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                    v!!.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE))
-                                } else {
-                                    //deprecated in API 26
-                                    v!!.vibrate(500)
                                 }
-                            } else {
+                                // Vibrate for 500 milliseconds
 
-                            }
+                                if (sharedPref.getBoolean("vibrate", false)) {
+                                    val v =
+                                        activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                        v?.vibrate(
+                                            VibrationEffect.createOneShot(
+                                                500,
+                                                VibrationEffect.DEFAULT_AMPLITUDE
+                                            )
+                                        )
+                                    } else {
+                                        //deprecated in API 26
+                                        v?.vibrate(500)
+                                    }
+                                } else {
 
-                            historyViewModel = ViewModelProviders.of(activity!!).get(HistoryViewModel::class.java)
-                            var history: History
-                            when {
-                                barcodes.valueAt(0).displayValue.contains("http://") || barcodes.valueAt(0).displayValue.contains(
-                                    "https://"
-                                ) -> history =
-                                    History(
-                                        0,
-                                        barcodes.valueAt(0).displayValue,
-                                        R.drawable.ic_web,
-                                        SimpleDateFormat("dd/MM/yyyy   hh:mm").format(Calendar.getInstance().time)
-                                    )
-                                barcodes.valueAt(0).displayValue.contains("@gmail.com") || barcodes.valueAt(0).displayValue.contains(
-                                    "@yahoo.com"
-                                ) ||  barcodes.valueAt(0).displayValue.contains("@solarapp.asia") -> history =
-                                    History(
-                                        0,
-                                        barcodes.valueAt(0).displayValue,
-                                        R.drawable.ic_email,
-                                        SimpleDateFormat("dd/MM/yyyy   hh:mm").format(Calendar.getInstance().time)
-                                    )
-                                else -> history =
-                                    History(
-                                        0,
-                                        barcodes.valueAt(0).displayValue,
-                                        R.drawable.ic_text,
-                                        SimpleDateFormat("dd/MM/yyyy   hh:mm").format(Calendar.getInstance().time)
-                                    )
-                            }
+                                }
 
-                            if (sharedPref.getBoolean("vibrate", false)) {
-                                historyViewModel!!.insert(history)
-                            } else {
+                                historyViewModel = ViewModelProviders.of(activity!!)
+                                    .get(HistoryViewModel::class.java)
+                                val history: History
+                                when {
+                                    barcodes.valueAt(0).displayValue.contains("http://") || barcodes.valueAt(
+                                        0
+                                    ).displayValue.contains(
+                                        "https://"
+                                    ) -> history =
+                                        History(
+                                            0,
+                                            barcodes.valueAt(0).displayValue,
+                                            R.drawable.ic_web,
+                                            SimpleDateFormat("dd/MM/yyyy   hh:mm").format(Calendar.getInstance().time)
+                                        )
+                                    barcodes.valueAt(0).displayValue.contains("@gmail.com") || barcodes.valueAt(
+                                        0
+                                    ).displayValue.contains(
+                                        "@yahoo.com"
+                                    ) || barcodes.valueAt(0).displayValue.contains("@solarapp.asia") -> history =
+                                        History(
+                                            0,
+                                            barcodes.valueAt(0).displayValue,
+                                            R.drawable.ic_email,
+                                            SimpleDateFormat("dd/MM/yyyy   hh:mm").format(Calendar.getInstance().time)
+                                        )
+                                    else -> history =
+                                        History(
+                                            0,
+                                            barcodes.valueAt(0).displayValue,
+                                            R.drawable.ic_text,
+                                            SimpleDateFormat("dd/MM/yyyy   hh:mm").format(Calendar.getInstance().time)
+                                        )
+                                }
 
-                            }
+                                if (sharedPref.getBoolean("vibrate", false)) {
+                                    historyViewModel?.insert(history)
+                                } else {
 
-                            Toast.makeText(
-                                activity, barcodes.valueAt(0).displayValue,
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            // If you would like to resume scanning, call this method below:
-                            var dialog: AlertDialog? =
-                                AlertDialog.Builder(activity).setTitle("Bạn có muốn tiếp tục?")
-                                    .setPositiveButton("Có", DialogInterface.OnClickListener { dialog, which ->
+                                }
+
+                                Toast.makeText(
+                                    activity, barcodes.valueAt(0).displayValue,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                // If you would like to resume scanning, call this method below:
+                                AlertDialog.Builder(activity)
+                                    .setTitle("Bạn có muốn tiếp tục?")
+                                    .setMessage("${barcodes.valueAt(0).displayValue}")
+                                    .setPositiveButton(
+                                        "Có"
+                                    ) { dialog, which ->
 
                                         check = false
-                                    }).setNegativeButton("Không", null).setIcon(android.R.drawable.btn_star).show()
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                            Log.e("AAAA", e.message)
+                                    }.setNegativeButton("Không") { _, _ ->
+                                        check = false
+                                    }
+                                    .setIcon(android.R.drawable.btn_star).show()
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                                e.message?.let { Log.e("AAAA", it) }
+                            }
+
                         }
-
-                    })
-
                     }
                 }
             }
@@ -219,10 +222,10 @@ class VisionFragment : Fragment() {
         var flip = false
         btnFlipCamera.setOnClickListener {
             mCameraSource!!.stop()
-            var builder = CameraSource.Builder(getActivity(), mBarcodeDetector)
-                                .setFacing(CameraSource.CAMERA_FACING_BACK)
-                                .setAutoFocusEnabled(true)
-                                .setRequestedPreviewSize(640, 480);
+            val builder = CameraSource.Builder(getActivity(), mBarcodeDetector)
+                .setFacing(CameraSource.CAMERA_FACING_BACK)
+                .setAutoFocusEnabled(true)
+                .setRequestedPreviewSize(640, 480);
             if (flip) {
                 builder.setFacing(CameraSource.CAMERA_FACING_BACK)
             } else {
@@ -251,7 +254,8 @@ class VisionFragment : Fragment() {
         if (camera != null) {
             try {
                 val param = camera!!.getParameters()
-                param.setFlashMode(if (!flashmode) Camera.Parameters.FLASH_MODE_TORCH else Camera.Parameters.FLASH_MODE_OFF)
+                param.setFlashMode(if (!flashmode) Camera.Parameters.FLASH_MODE_TORCH
+                else Camera.Parameters.FLASH_MODE_OFF)
                 camera!!.setParameters(param)
                 flashmode = !flashmode
                 if (flashmode) {

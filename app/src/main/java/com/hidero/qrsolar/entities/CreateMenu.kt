@@ -1,7 +1,7 @@
 package com.hidero.qrsolar.entities
 
-import android.databinding.BindingAdapter
-import android.databinding.ObservableField
+import androidx.databinding.BindingAdapter
+import androidx.databinding.ObservableField
 import android.widget.ImageView
 
 data class CreateMenu(

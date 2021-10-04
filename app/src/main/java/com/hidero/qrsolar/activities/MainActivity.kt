@@ -1,10 +1,10 @@
 package com.hidero.qrsolar.activities
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity(), GetImagePathFromGallery {
 //        }else{
 //            ""
 //        }
-        var bundle = getIntent().extras
+        var bundle = intent.extras
         var img = ""
         if (bundle != null) {
-            img = bundle.getString("pathImage")
+            img = bundle.getString("pathImage")!!
         }
         Log.e(TAG, img)
         return img
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(), GetImagePathFromGallery {
         binding = DataBindingUtil.setContentView(this@MainActivity, com.hidero.qrsolar.R.layout.activity_main)
         binding.main = this@MainActivity
 //        replaceFragment(PhotoEditorFragment())
-        replaceFragment(PreviewFragment())
+        replaceFragment(VisionFragment())
         binding.bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
             mOnNavigationItemSelectedListener(menuItem)
         }
@@ -144,9 +144,9 @@ class MainActivity : AppCompatActivity(), GetImagePathFromGallery {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        var result: IntentResult =
+        val result: IntentResult =
             IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null && data != null) {
+        if (data != null) {
             if (result.contents == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
             } else {

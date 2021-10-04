@@ -1,7 +1,7 @@
 package com.hidero.qrsolar.daos
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.hidero.qrsolar.entities.History
 
 @Dao

@@ -1,7 +1,7 @@
 package com.hidero.qrsolar.repositories
 
 import android.app.Application
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.os.AsyncTask
 import android.provider.ContactsContract
 import com.hidero.qrsolar.daos.QRTextDao

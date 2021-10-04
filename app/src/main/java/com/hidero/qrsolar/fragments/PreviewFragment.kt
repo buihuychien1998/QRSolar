@@ -9,7 +9,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -28,15 +28,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
 class PreviewFragment : Fragment() {
 
     override fun onCreateView(
@@ -55,8 +46,8 @@ class PreviewFragment : Fragment() {
     var result: Bitmap? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var pathImage = activity as GetImagePathFromGallery
-        var file: File = File(pathImage!!.getPath(true))
+        val pathImage = activity as GetImagePathFromGallery
+        val file = File(pathImage.getPath(true))
         if (file.exists()) {
             Glide.with(this).load(file).into(ivPhoto)
 

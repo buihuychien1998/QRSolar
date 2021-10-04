@@ -1,10 +1,10 @@
 package com.hidero.qrsolar.fragments
 
 
-import android.databinding.DataBindingUtil
-import android.databinding.ObservableField
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ObservableField
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ import com.hidero.qrsolar.activities.MainActivity.Companion.opt
 import com.hidero.qrsolar.adapters.CreateAdapter
 import com.hidero.qrsolar.databinding.FragmentCreateBinding
 import com.hidero.qrsolar.entities.CreateMenu
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_create.*
 

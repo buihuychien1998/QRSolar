@@ -16,8 +16,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.*
 import android.widget.Button
@@ -153,7 +153,7 @@ class ScanFragment : Fragment(), SurfaceHolder.Callback,
                 }
                 cameraSource.start(surfaceView!!.holder)
             } catch (ie: IOException) {
-                Log.e("CAMERA SOURCE", ie.message);
+                ie.message?.let { Log.e("CAMERA SOURCE", it) };
             }
         }
 

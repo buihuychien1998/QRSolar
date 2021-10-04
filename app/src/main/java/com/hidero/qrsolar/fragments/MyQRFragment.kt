@@ -1,21 +1,21 @@
 package com.hidero.qrsolar.fragments
 
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
-import android.support.design.widget.CoordinatorLayout
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -120,7 +120,7 @@ class MyQRFragment : Fragment(), MyQRAdapter.OnItemClickListener {
 // Changing action button text color
                 val sbView = snackbar.view
                 val textView =
-                    sbView.findViewById(android.support.design.R.id.snackbar_text) as TextView
+                    sbView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
                 textView.setTextColor(Color.YELLOW)
 
                 var handler = Handler()

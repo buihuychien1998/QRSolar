@@ -22,7 +22,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="18sp"/>
 
-        <android.support.v7.widget.SwitchCompat
+        <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchWidget"
                 style="@style/MySwitch"
                 android:layout_width="70dp"

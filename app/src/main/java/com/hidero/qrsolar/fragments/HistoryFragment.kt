@@ -1,20 +1,20 @@
 package com.hidero.qrsolar.fragments
 
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.PagerSnapHelper
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -89,7 +89,7 @@ class HistoryFragment : Fragment() {
             }
         })
 //        Set one swipe at a time
-        historyAdapter!!.mode = Attributes.Mode.Single
+//        historyAdapter!!.mode = Attributes.Mode.Single
         historyAdapter!!.setOnItemClickListener(listener = mClick)
         historyAdapter!!.setOnSwipeItem(listener = object : HistoryAdapter.OnSwipeItem {
             override fun onSwipeLeft(item: History) {

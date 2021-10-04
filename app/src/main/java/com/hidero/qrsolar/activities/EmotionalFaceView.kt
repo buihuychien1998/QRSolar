@@ -180,7 +180,7 @@ class EmotionalFaceView(context: Context, attrs: AttributeSet) : View(context, a
 
         if (viewState is Bundle) {
             happinessState = viewState.getLong("happinessState", HAPPY)
-            viewState = viewState.getParcelable("superState")
+            viewState = viewState.getParcelable("superState")!!
         }
 
         super.onRestoreInstanceState(viewState)

@@ -3,7 +3,7 @@ package com.hidero.qrsolar.utils
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.preference.Preference
-import android.support.v7.content.res.AppCompatResources
+import androidx.appcompat.content.res.AppCompatResources
 import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView

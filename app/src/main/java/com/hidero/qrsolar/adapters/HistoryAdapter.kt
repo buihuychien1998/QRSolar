@@ -1,11 +1,11 @@
 package com.hidero.qrsolar.adapters
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -170,36 +170,37 @@ class HistoryAdapter(var dataList: ArrayList<History>) :
 //                }
 //            }
 
-            // Set listener
-//            swipeLayout.addSwipeListener(object : SwipeLayout.SwipeListener {
-//                override fun onClose(layout: SwipeLayout) {
-//                }
-//
-//                override fun onUpdate(layout: SwipeLayout, leftOffset: Int, topOffset: Int) {}
-//
-//                override fun onStartOpen(layout: SwipeLayout) {
-////                    mItemManger.closeAllExcept()
-////                    if (preswipes == null) {
-////                        preswipes = layout;
-////                    } else {
-////                        preswipes!!.close(true);
-////                        preswipes = layout;
-////                    }
-////                    for(i in dataList.indices){
-////                        if(i == position){
-////                            continue
-////                        }else{
-////                            mItemManger.closeItem(i)
-////                        }
-////                    }
-//                }
-//
-//                override fun onOpen(layout: SwipeLayout) {
-//                }
-//
-//                override fun onStartClose(layout: SwipeLayout) {}
-//
-//                override fun onHandRelease(layout: SwipeLayout, xvel: Float, yvel: Float) {
+//             Set listener
+            mItemManger.bindView(binding.root, position)
+            swipeLayout.addSwipeListener(object : SwipeLayout.SwipeListener {
+                override fun onClose(layout: SwipeLayout) {
+                }
+
+                override fun onUpdate(layout: SwipeLayout, leftOffset: Int, topOffset: Int) {}
+
+                override fun onStartOpen(layout: SwipeLayout) {
+                    mItemManger.closeAllExcept(layout)
+//                    if (preswipes == null) {
+//                        preswipes = layout;
+//                    } else {
+//                        preswipes!!.close(true);
+//                        preswipes = layout;
+//                    }
+//                    for(i in dataList.indices){
+//                        if(i == position){
+//                            continue
+//                        }else{
+//                            mItemManger.closeItem(i)
+//                        }
+//                    }
+                }
+
+                override fun onOpen(layout: SwipeLayout) {
+                }
+
+                override fun onStartClose(layout: SwipeLayout) {}
+
+                override fun onHandRelease(layout: SwipeLayout, xvel: Float, yvel: Float) {
 //                    val edge = layout.dragEdge.name
 //                    if (layout.openStatus.toString() !== "Close") {
 //                        when (edge) {
@@ -222,8 +223,8 @@ class HistoryAdapter(var dataList: ArrayList<History>) :
 //                            }
 //                        }
 //                    }
-//                }
-//            })
+                }
+            })
         }
     }
 }

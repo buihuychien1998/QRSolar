@@ -4,7 +4,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
+import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -15,12 +16,12 @@ import kotlinx.android.synthetic.main.activity_ss.*
 
 class SSActivity : AppCompatActivity() {
 
-    private val SPLASH_DISPLAY_LENGTH: Long = 4000
+    private val SPLASH_DISPLAY_LENGTH: Long = 1000
     var mDrawable: ThreeBounce? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ss)
-        val animation = AnimationUtils.loadAnimation(this, com.hidero.qrsolar.R.anim.reversedscan)
+        val animation = AnimationUtils.loadAnimation(this, R.anim.reversedscan)
         animation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
 
@@ -48,7 +49,7 @@ class SSActivity : AppCompatActivity() {
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
-        Handler().postDelayed(Runnable {
+        Handler(Looper.getMainLooper()).postDelayed(Runnable {
             /* Create an Intent that will start the Menu-Activity. */
             val mainIntent = Intent(this, MainActivity::class.java)
             this.startActivity(mainIntent)

@@ -4,10 +4,10 @@ package com.hidero.qrsolar.fragments
 import android.graphics.Color
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceFragmentCompat
-import android.support.v7.preference.PreferenceScreen
-import android.support.v7.preference.SwitchPreferenceCompat
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceScreen
+import androidx.preference.SwitchPreferenceCompat
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -147,7 +147,7 @@ class SettingFragment : PreferenceFragmentCompat() {
             true
         }
 
-    private fun bindPreferenceSummaryToValue(preference: android.support.v7.preference.Preference) {
+    private fun bindPreferenceSummaryToValue(preference: androidx.preference.Preference) {
         // Set the listener to watch for value changes.
         preference.onPreferenceChangeListener = sBindPreferenceSummaryToValueListener
 

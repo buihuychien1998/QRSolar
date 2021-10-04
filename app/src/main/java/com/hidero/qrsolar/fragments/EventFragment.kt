@@ -3,10 +3,10 @@ package com.hidero.qrsolar.fragments
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +25,7 @@ class EventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         MainActivity.opt = 8
         vm = ViewModelProviders.of(activity!!).get(EventViewModel::class.java)
-        vm!!.getValue().observe(activity!!, android.arch.lifecycle.Observer {it->
+        vm!!.getValue().observe(activity!!, androidx.lifecycle.Observer { it->
             if (it == null) {
 //                Toast.makeText(activity, "Null", Toast.LENGTH_SHORT).show()
             } else {
@@ -74,7 +74,7 @@ class EventFragment : Fragment() {
 //        var dayLongName = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.UK)
 
         val dpd = DatePickerDialog(
-            activity,
+            requireContext(),
             DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 // Display Selected date in text box
                 val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")

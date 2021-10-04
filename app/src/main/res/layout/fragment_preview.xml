@@ -1,64 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:background="#1D1A16"
-             tools:context=".fragments.PreviewFragment">
-    <RelativeLayout
-            android:background="#0C0C0C"
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-    >
-        <ImageView
-                android:padding="10dp"
-                android:id="@+id/btnHome"
-                android:src="@drawable/ic_white_back"
-                android:layout_width="wrap_content" android:layout_height="match_parent"/>
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1D1A16"
+        tools:context=".fragments.PreviewFragment">
 
-        <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:gravity="center_vertical"
-                  android:layout_toRightOf="@id/btnHome"
-                  android:id="@+id/tvTilte"
-                  android:text="Preview"
-                  android:textColor="#fff"
-                  android:padding="10dp"
-                  android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                  android:textStyle="bold"
-                  android:layout_toLeftOf="@+id/btnDone"
-        />
-        <Button android:layout_width="wrap_content" android:layout_height="match_parent"
+    <RelativeLayout
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#0C0C0C">
+
+        <ImageView
+                android:id="@+id/btnHome"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@drawable/ic_white_back" />
+
+        <TextView
+                android:id="@+id/tvTilte"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/btnDone"
+                android:layout_toRightOf="@id/btnHome"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="Preview"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+
+        <Button
+                android:id="@+id/btnDone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
                 android:background="@null"
                 android:text="Done"
-                android:textColor="#5906FF"
-                android:textStyle="bold"
                 android:textAllCaps="false"
-                android:layout_alignParentRight="true"
-                android:id="@+id/btnDone"
-                android:textSize="20sp"/>
+                android:textColor="#5906FF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
     </RelativeLayout>
 
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    android:layout_marginTop="56dp">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="56dp">
+
         <ImageView
                 android:id="@+id/ivPhoto"
-                android:src="@drawable/girl"
-                android:layout_width="328dp" android:layout_height="328dp"
-                android:layout_centerInParent="true"/>
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
-        android:layout_below="@id/ivPhoto"
-        android:gravity="center">
+                android:layout_width="328dp"
+                android:layout_height="328dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/girl" />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivPhoto"
+                android:gravity="center">
+
             <Button
-                    android:layout_marginHorizontal="20dp"
                     android:id="@+id/btnSquare"
-                    android:layout_toLeftOf="@id/btnCircle"
-                    android:layout_width="50dp" android:layout_height="50dp"
-                    android:background="@drawable/ic_rectangle"/>
-            <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="20dp"
+                    android:layout_toLeftOf="@id/btnCircle"
+                    android:background="@drawable/ic_rectangle" />
+
+            <Button
                     android:id="@+id/btnCircle"
-                    android:layout_width="50dp" android:layout_height="50dp"
-                    android:background="@drawable/ic_circle"/>
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/ic_circle" />
         </RelativeLayout>
 
     </RelativeLayout>

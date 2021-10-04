@@ -1,9 +1,9 @@
 package com.hidero.qrsolar.fragments
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,7 +53,7 @@ class PhotoEditorFragment : Fragment(), FilterListener {
             .build() // build photo editor sdk
 //        mPhotoEditor!!.setOnPhotoEditorListener(this)
         pathImage = activity as GetImagePathFromGallery
-        var file: File = File(pathImage!!.getPath(true))
+        val file = File(pathImage!!.getPath(true))
         if (file.exists()){
             Glide.with(this).load(file).circleCrop().into(ivGallery)
 
@@ -61,7 +61,11 @@ class PhotoEditorFragment : Fragment(), FilterListener {
             ivGallery.setImageResource(R.drawable.girl)
         }
 
-        val llmFilters = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val llmFilters = LinearLayoutManager(
+            activity,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
         rvFilter.setLayoutManager(llmFilters)
         rvFilter.setAdapter(mFilterViewAdapter)
     }

@@ -1,8 +1,8 @@
 package com.hidero.qrsolar.viewmodels
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 
 class CustomViewModel(application: Application) : AndroidViewModel(application) {
     private var text: MutableLiveData<String> = MutableLiveData()

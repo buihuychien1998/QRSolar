@@ -2,7 +2,7 @@ package com.hidero.qrsolar.fragments
 
 
 import android.app.AlertDialog
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -12,8 +12,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.support.v4.app.Fragment
-import android.support.v7.preference.PreferenceManager
+import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
